@@ -23,6 +23,11 @@ public class UserController {
      */
     @GetMapping("/api/shortlink/v1/user/{username}")
     public Result<UserRespDTO> getUserByUsername(@PathVariable("username") String username) {
-        return new Result<UserRespDTO>().setCode("0").setData(userService.getUserByUsername(username));
+        UserRespDTO result = userService.getUserByUsername(username);
+        if (result == null){
+            return new Result<UserRespDTO>().setCode("-1").setMessage("用户不存在");
+        }else {
+            return new Result<UserRespDTO>().setCode("0").setData(result);
+        }
     }
 }
