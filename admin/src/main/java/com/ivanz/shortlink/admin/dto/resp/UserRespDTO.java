@@ -1,11 +1,11 @@
 package com.ivanz.shortlink.admin.dto.resp;
 
 
-import java.util.Date;
 import lombok.Data;
 
 /**
  * 用户响应DTO
+ * @author ivan
  */
 @Data
 public class UserRespDTO {
@@ -33,25 +33,4 @@ public class UserRespDTO {
      * 邮箱
      */
     private String mail;
-
-    /**
-     * 注销时间戳
-     */
-    private Long deletionTime;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
-
-    /**
-     * 删除标识 0：未删除 1：已删除
-     */
-    private Integer delFlag;
-
 }
