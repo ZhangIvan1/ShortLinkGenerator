@@ -1,17 +1,14 @@
-package com.ivanz.shortlink.admin.dao.entity;
+package com.ivanz.shortlink.admin.dto.resp;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.util.Date;
 import lombok.Data;
 
 /**
- * 用户DO
+ * 用户响应DTO
  */
 @Data
-@TableName("t_user")
-public class UserDO {
-    private static final long serialVersionUID = 1L;
-
+public class UserRespDTO {
     /**
      * ID
      */
@@ -21,11 +18,6 @@ public class UserDO {
      * 用户名
      */
     private String username;
-
-    /**
-     * 密码
-     */
-    private String password;
 
     /**
      * 真实姓名
@@ -62,5 +54,4 @@ public class UserDO {
      */
     private Integer delFlag;
 
-    public UserDO() {}
 }
