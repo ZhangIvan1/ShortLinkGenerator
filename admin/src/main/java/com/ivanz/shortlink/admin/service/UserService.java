@@ -27,4 +27,12 @@ public interface UserService extends IService<UserDO>  {
      * @return 用户返回脱敏实体
      */
     UserActualRespDTO getActualUserByUsername(String username);
+
+    /**
+     * 查询用户是否存在
+     *
+     * @param username 用户名
+     * @return 是否存在 存在True 不存在False
+     */
+    Boolean hasUsername(String username);
 }

@@ -37,4 +37,12 @@ public class UserController {
     public Result<UserActualRespDTO> getActualUserByUsername(@PathVariable("username") String username) {
         return Results.success(userService.getActualUserByUsername(username));
     }
+
+    /**
+     * 查询用户是否存在
+     */
+    @GetMapping("/api/shortlink/v1/user/has-username/{username}")
+    public Result<Boolean> hasUsername(@PathVariable("username") String username) {
+        return Results.success(userService.hasUsername(username));
+    }
 }
