@@ -5,7 +5,7 @@ spring:
   datasource:
     username: root
     password: zyf-zyf111222333
-    url: jdbc:mysql://nocdn.ivanz.cc:43306/link?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/link?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-test-query: select 1
@@ -13,3 +13,8 @@ spring:
       idle-timeout: 300000
       maximum-pool-size: 5
       minimum-idle: 5
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: zyf-zyf111222333
