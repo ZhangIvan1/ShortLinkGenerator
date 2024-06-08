@@ -6,11 +6,11 @@ import com.ivanz.shortlink.admin.common.serialize.PhoneDesensitizationSerializer
 import lombok.Data;
 
 /**
- * 用户脱敏返回响应DTO
+ * 用户返回响应DTO
  * @author ivan
  */
 @Data
-public class UserRespDTO {
+public class UserActualRespDTO {
     /**
      * ID
      */
@@ -29,7 +29,6 @@ public class UserRespDTO {
     /**
      * 手机号
      */
-    @JsonSerialize(using = PhoneDesensitizationSerializer.class)
     private String phone;
 
     /**
