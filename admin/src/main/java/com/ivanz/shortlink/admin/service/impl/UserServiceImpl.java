@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 用户服务实现类
+ *
  * @author ivan
  */
 @Service
@@ -20,13 +21,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
 
     @Override
     public UserRespDTO getUserByUsername(String username) {
-        LambdaQueryWrapper<UserDO> queryWrapper=  Wrappers.lambdaQuery(UserDO.class).eq(UserDO::getUsername,username);
-        UserDO userDO =baseMapper.selectOne(queryWrapper);
+        LambdaQueryWrapper<UserDO> queryWrapper = Wrappers.lambdaQuery(UserDO.class).eq(UserDO::getUsername, username);
+        UserDO userDO = baseMapper.selectOne(queryWrapper);
         UserRespDTO result = new UserRespDTO();
         if (userDO != null) {
             BeanUtils.copyProperties(userDO, result);
             return result;
-        }else {
+        } else {
             return null;
         }
     }
