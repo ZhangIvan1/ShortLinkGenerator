@@ -20,11 +20,11 @@ public abstract class AbstractException extends RuntimeException {
 
     public final String errorCode;
 
-    public final String errMessage;
+    public final String errorMessage;
 
     public AbstractException(String message, Throwable throwable, IErrorCode errorCode) {
         super(message, throwable);
         this.errorCode = errorCode.code();
-        this.errMessage = Optional.ofNullable(StringUtils.hasLength(message) ? message : null).orElse(errorCode.message());
+        this.errorMessage = Optional.ofNullable(StringUtils.hasLength(message) ? message : null).orElse(errorCode.message());
     }
 }

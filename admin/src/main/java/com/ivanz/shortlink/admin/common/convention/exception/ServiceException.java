@@ -32,7 +32,7 @@ public class ServiceException extends AbstractException {
     public String toString() {
         return "ServiceException{" +
                 "errorCode='" + errorCode + '\'' +
-                ", errMessage='" + errMessage + '\'' +
+                ", errMessage='" + errorMessage + '\'' +
                 '}';
     }
 }

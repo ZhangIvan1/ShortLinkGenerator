@@ -23,7 +23,7 @@ public class RemoteException extends AbstractException {
     public String toString() {
         return "RemoteException{" +
                 "errorCode='" + errorCode + '\'' +
-                ", errMessage='" + errMessage + '\'' +
+                ", errMessage='" + errorMessage + '\'' +
                 '}';
     }
 }
