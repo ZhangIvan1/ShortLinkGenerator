@@ -3,6 +3,7 @@ package com.ivanz.shortlink.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ivanz.shortlink.admin.dao.entity.UserDO;
+import com.ivanz.shortlink.admin.dto.req.UserRegisterReqDTO;
 import com.ivanz.shortlink.admin.dto.resp.UserActualRespDTO;
 import com.ivanz.shortlink.admin.dto.resp.UserRespDTO;
 
@@ -35,4 +36,11 @@ public interface UserService extends IService<UserDO>  {
      * @return 是否存在 存在True 不存在False
      */
     Boolean hasUsername(String username);
+
+    /**
+     * 注册用户
+     *
+     * @param userRegisterReqDTO 用户注册请求实体
+     */
+    void register(UserRegisterReqDTO userRegisterReqDTO);
 }
