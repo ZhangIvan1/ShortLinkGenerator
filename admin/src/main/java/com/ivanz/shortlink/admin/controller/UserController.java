@@ -1,7 +1,9 @@
 package com.ivanz.shortlink.admin.controller;
 
 import com.ivanz.shortlink.admin.common.convention.Result;
+import com.ivanz.shortlink.admin.common.convention.Results;
 import com.ivanz.shortlink.admin.common.convention.errorcode.BaseErrorCode;
+import com.ivanz.shortlink.admin.common.convention.exception.ClientException;
 import com.ivanz.shortlink.admin.dto.resp.UserRespDTO;
 import com.ivanz.shortlink.admin.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +30,7 @@ public class UserController {
         if (result == null){
             return new Result<UserRespDTO>().setCode(BaseErrorCode.USER_NOT_FOUND.code()).setMessage(BaseErrorCode.USER_NOT_FOUND.message());
         }else {
-            return new Result<UserRespDTO>().setCode("0").setData(result);
+            return Results.success(result);
         }
     }
 }

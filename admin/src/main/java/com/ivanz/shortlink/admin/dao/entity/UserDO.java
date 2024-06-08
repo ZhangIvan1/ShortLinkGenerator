@@ -45,7 +45,7 @@ public class UserDO {
     /**
      * 注销时间戳
      */
-    private Long deletionTime;
+    private Long deletion_time;
 
     /**
      * 创建时间

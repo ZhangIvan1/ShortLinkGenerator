@@ -2,6 +2,7 @@ package com.ivanz.shortlink.admin.common.convention;
 
 
 import com.ivanz.shortlink.admin.common.convention.errorcode.BaseErrorCode;
+import com.ivanz.shortlink.admin.common.convention.errorcode.IErrorCode;
 import com.ivanz.shortlink.admin.common.convention.exception.AbstractException;
 
 import java.util.Optional;
@@ -19,22 +20,21 @@ public final class Results {
     }
 
     /**
-     * 构造带返回数据的成功相应
+     * 构造带返回数据的成功响应
      */
     public static <T> Result<T> success(T data) {
         return new Result<T>().setCode(Result.SUCCESS_CODE).setData(data);
     }
 
     /**
-     * 构造服务端失败相应
+     * 构建服务端失败响应
      */
     public static Result<Void> failure() {
         return new Result<Void>().setCode(BaseErrorCode.SERVICE_ERROR.code()).setMessage(BaseErrorCode.SERVICE_ERROR.message());
     }
 
-
     /**
-     * 通过{@link AbstractException}构造失败响应
+     * 通过 {@link AbstractException} 构建失败响应
      */
     public static Result<Void> failure(AbstractException abstractException) {
         String errorCode = Optional.ofNullable(abstractException.getErrorCode()).orElse(BaseErrorCode.SERVICE_ERROR.code());
@@ -42,9 +42,8 @@ public final class Results {
         return new Result<Void>().setCode(errorCode).setMessage(errorMessage);
     }
 
-
     /**
-     * 通过errCode、errMessage构造失败响应
+     * 通过 errorCode、errorMessage 构建失败响应
      */
     public static Result<Void> failure(String errorCode, String errorMessage) {
         return new Result<Void>().setCode(errorCode).setMessage(errorMessage);
