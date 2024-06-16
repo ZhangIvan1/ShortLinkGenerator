@@ -5,6 +5,7 @@ import com.ivanz.shortlink.admin.common.convention.Results;
 import com.ivanz.shortlink.admin.common.convention.errorcode.BaseErrorCode;
 import com.ivanz.shortlink.admin.common.convention.exception.ClientException;
 import com.ivanz.shortlink.admin.dto.req.UserRegisterReqDTO;
+import com.ivanz.shortlink.admin.dto.req.UserUpdateReqDTO;
 import com.ivanz.shortlink.admin.dto.resp.UserActualRespDTO;
 import com.ivanz.shortlink.admin.dto.resp.UserRespDTO;
 import com.ivanz.shortlink.admin.service.UserService;
@@ -51,6 +52,15 @@ public class UserController {
     @PostMapping("api/short-link/v1/user")
     public Result<Void> registerUser(@RequestBody UserRegisterReqDTO registerReqDTO){
         userService.register(registerReqDTO);
+        return Results.success();
+    }
+
+    /**
+     * 修改用户信息
+     */
+    @PutMapping("api/short-link/v1/user")
+    public Result<Void> updateUser(@RequestBody UserUpdateReqDTO userUpdateReqDTO){
+        userService.update(userUpdateReqDTO);
         return Results.success();
     }
 }
