@@ -3,9 +3,11 @@ package com.ivanz.shortlink.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ivanz.shortlink.admin.dao.entity.UserDO;
+import com.ivanz.shortlink.admin.dto.req.UserLoginReqDTO;
 import com.ivanz.shortlink.admin.dto.req.UserRegisterReqDTO;
 import com.ivanz.shortlink.admin.dto.req.UserUpdateReqDTO;
 import com.ivanz.shortlink.admin.dto.resp.UserActualRespDTO;
+import com.ivanz.shortlink.admin.dto.resp.UserLoginRespDTO;
 import com.ivanz.shortlink.admin.dto.resp.UserRespDTO;
 
 /**
@@ -51,4 +53,21 @@ public interface UserService extends IService<UserDO>  {
      * @param userUpdateReqDTO 用户更新请求实体
      */
     void update(UserUpdateReqDTO userUpdateReqDTO);
+
+    /**
+     * 用户登录
+     *
+     * @param userLoginReqDTO 用户登录请求实体
+     * @return 用户登录返回实体
+     */
+    UserLoginRespDTO login(UserLoginReqDTO userLoginReqDTO);
+
+
+    /**
+     * 检查用户是否已经登录
+     *
+     * @param token 用户token
+     * @return 是否登录
+     */
+    Boolean checkLogin(String username, String token);
 }
