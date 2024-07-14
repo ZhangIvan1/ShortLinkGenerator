@@ -86,4 +86,13 @@ public class UserController {
         Boolean isLogin = userService.checkLogin(username, token);
         return Results.success(isLogin);
     }
+
+    /**
+     * 用户退出登录
+     */
+    @DeleteMapping("/user/logout")
+    public Result<Void> logout(@RequestParam("username") String username, @RequestParam("token") String token) {
+        userService.logout(username, token);
+        return Results.success();
+    }
 }

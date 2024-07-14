@@ -19,9 +19,7 @@ import com.ivanz.shortlink.admin.dto.resp.UserActualRespDTO;
 import com.ivanz.shortlink.admin.dto.resp.UserLoginRespDTO;
 import com.ivanz.shortlink.admin.dto.resp.UserRespDTO;
 import com.ivanz.shortlink.admin.service.UserService;
-import jodd.cli.Cli;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -29,9 +27,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 
@@ -133,6 +128,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
 
     @Override
     public Boolean checkLogin(String username, String token) {
-        return stringRedisTemplate.opsForHash().get("login_" +username, token) != null;
+        return stringRedisTemplate.opsForHash().get("login_" + username, token) != null;
+    }
+
+    @Override
+    public void logout(String username, String token) {
+        if (!checkLogin(username, token)) {
+            throw new ClientException("用户Token不存在或用户未登录");
+        }
+        stringRedisTemplate.delete("login_" + username);
     }
 }
